@@ -1,0 +1,33 @@
+{
+  "name": "twitter-oauth-app",
+  "version": "0.0.1",
+  "description": "Simple node app up and running with Twitter oauth",
+  "directories": {},
+  "scripts": {
+    "start": "coffee app/server.coffee"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neilcarpenter/twitter-oauth-app"
+  },
+  "author": "Neil Carpenter <neilanthonycarpenter@gmail.com> (http://neilcarpenter.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/neilcarpenter/twitter-oauth-app/issues"
+  },
+  "dependencies": {
+    "coffee-script": "~1.7.1",
+    "express": "~4.1.2",
+    "express-session": "~1.1.0",
+    "cookie-parser": "~1.0.1",
+    "body-parser": "~1.2.0",
+    "jade": "~1.3.1",
+    "winston": "~0.7.3",
+    "passport": "~0.2.0",
+    "passport-twitter": "~1.0.2",
+    "twitter": "~0.2.9"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}

@@ -1,0 +1,2 @@
+# include this for deployment
+!app/creds.coffee
