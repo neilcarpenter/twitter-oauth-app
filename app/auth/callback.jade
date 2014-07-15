@@ -1,45 +1,13 @@
 extends ../layout
 block body
-	h1 Callback for #{provider}
-	p: b Token - <span data-token>#{token}</span>
-	p: b TokenSecret - <span data-tokenSecret>#{tokenSecret}</span>
-	p Name - #{name}
-	p ID - <span data-userid>#{id}</span>
-	button#api-example Get #{name}'s last 5 tweets
+	i Calling back to parent...
 
 	script.
-		$('#api-example').on('click', function() {
+		var data = {
+			token       : "#{token}",
+			tokenSecret : "#{tokenSecret}",
+			name        : "#{name}",
+			id          : "#{id}",
+		};
 
-			var $this, data, req;
-
-			$this = $(this);
-
-			$this.text('Getting tweets...');
-
-			data = {
-				user_id     : $('[data-userid]').text(),
-				token       : $('[data-token]').text(),
-				tokenSecret : $('[data-tokenSecret]').text()
-			};
-
-			req = $.ajax({
-				type : 'POST',
-				url  : '/api/twitter/getTweets',
-				data : data
-			});
-
-			req.done(function(res) {
-
-				$this.remove();
-
-				var $ol = $('<ol />')
-
-				res.tweets.forEach(function(tweet){
-					$ol.append('<li>' + tweet.text +'</li>');
-				});
-
-				$('body').append($ol);
-
-			});
-
-		});
+		window.opener.$loginDfd.resolve(data);
